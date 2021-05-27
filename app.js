@@ -32,14 +32,16 @@ function renderTodos(todos) {
     const checked = item.completed ? 'checked' : null;
 
     const li = document.createElement('li');
-    li.setAttribute('class', 'item');
+    li.setAttribute('class', 'item list-group-item');
+    // li.setAttribute('class', 'list-group-item');
     li.setAttribute('data-key', item.id);
 
     if (item.completed) {
       li.classList.add('checked');
     }
 
-    li.innerHTML = `<input type="checkbox" class="checkbox" ${checked}> ${item.name} <button class="delete-button">Done</button>`;
+    li.innerHTML = `<input type="checkbox" class="checkbox" ${checked}> <span class="todo-item">${item.name}</span> <button class="delete-button btn-close"></button>`;
+
     list.append(li);
   });
 }
